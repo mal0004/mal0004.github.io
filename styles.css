@@ -160,3 +160,30 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+#themeToggle:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+/* Animation de "fade-in" pour le contenu des sections */
+section p, section h3 {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+section.in-view p, section.in-view h3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation "hover" pour les liens dans le pied de page */
+footer a {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ddd;
+}

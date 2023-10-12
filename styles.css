@@ -10,8 +10,9 @@ header {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    border-bottom-left-radius: 20px; /* Coins arrondis */
-    border-bottom-right-radius: 20px; /* Coins arrondis */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    animation: slideDown 1s forwards;
 }
 
 header p {
@@ -23,11 +24,11 @@ section {
     max-width: 800px;
     margin: 20px auto;
     background-color: #fff;
-    border-radius: 20px; /* Coins arrondis */
+    border-radius: 20px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s, transform 0.5s;
-    overflow: hidden; /* Pour s'assurer que le contenu interne respecte les coins arrondis */
+    overflow: hidden;
 }
 
 section.in-view {
@@ -64,6 +65,63 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    border-top-left-radius: 20px; /* Coins arrondis */
-    border-top-right-radius: 20px; /* Coins arrondis */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    animation: slideUp 1s forwards;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+body.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-theme header,
+body.dark-theme section,
+body.dark-theme footer {
+    background-color: #444;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p {
+    color: #fff;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

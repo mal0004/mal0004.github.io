@@ -1,11 +1,17 @@
+/* Styles généraux */
 body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .site-container {
+    width: 100%; /* Utilise toute la largeur disponible */
+    max-width: 1200px; /* Largeur maximale pour grands écrans */
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -33,40 +39,23 @@ header p {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 #themeToggle:hover {
+    transform: scale(1.1);
     color: #ddd;
-}
-
-body.dark-theme {
-    background-color: #333;
-    color: #fff;
-}
-
-body.dark-theme header,
-body.dark-theme section,
-body.dark-theme footer {
-    background-color: #444;
-}
-
-body.dark-theme h1,
-body.dark-theme h2,
-body.dark-theme h3,
-body.dark-theme p {
-    color: #fff;
 }
 
 section {
     padding: 20px;
-    max-width: 800px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 20px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s, transform 0.5s;
+    max-width: 800px; /* Limite la largeur pour les grands écrans */
 }
 
 section.in-view {
@@ -79,20 +68,33 @@ h2 {
     padding-bottom: 10px;
     transform: scale(0.9);
     transition: transform 0.5s;
+    position: relative; /* Pour l'effet de soulignement animé */
 }
 
-section.in-view h2 {
-    transform: scale(1);
+h2:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #333;
+    animation: underlineEffect 0.5s forwards;
+}
+
+@keyframes underlineEffect {
+    0% {
+        width: 0;
+        left: 50%;
+    }
+    100% {
+        width: 100%;
+        left: 0;
+    }
 }
 
 .job, .school {
     margin-top: 20px;
-    transform: translateX(-10%);
-    transition: transform 0.5s;
-}
-
-section.in-view .job, section.in-view .school {
-    transform: translateX(0);
 }
 
 footer {
@@ -133,24 +135,10 @@ footer {
 }
 
 /* Styles pour les écrans de taille moyenne et les tablettes */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5rem 0;
-    }
-
-    #themeToggle {
-        top: 5px;
-        right: 5px;
-        font-size: 20px;
-    }
-
+@media (min-width: 768px) {
     section {
-        padding: 15px;
-        margin: 15px 10px;
-    }
-
-    h1, h2, h3 {
-        font-size: 1.5rem;
+        padding: 40px;
+        margin: 40px auto;
     }
 }
 
@@ -161,6 +149,7 @@ footer {
     }
 }
 
+/* Animation de "hover" pour le bouton de changement de thème */
 #themeToggle:hover {
     transform: scale(1.1);
     transition: transform 0.3s;
@@ -187,3 +176,19 @@ footer a {
 footer a:hover {
     color: #ddd;
 }
+
+/* Effet de pulsation pour le titre principal */
+header h1 {
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+

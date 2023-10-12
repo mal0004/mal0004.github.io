@@ -18,14 +18,21 @@ $(document).ready(function() {
     $(window).on('scroll', checkIfInView);
     checkIfInView();
 
-    // Fonction pour basculer entre les thèmes clair et sombre
     $("#themeToggle").on("click", function() {
         $("body").toggleClass("dark-theme");
         const currentTheme = $("body").hasClass("dark-theme") ? "dark" : "light";
-        localStorage.setItem("theme", currentTheme); // sauvegarder le thème choisi dans le stockage local
+        localStorage.setItem("theme", currentTheme);
+        updateThemeIcon();
     });
 
-    // Vérifier le stockage local pour voir si un thème a été préalablement choisi
+    function updateThemeIcon() {
+        if ($("body").hasClass("dark-theme")) {
+            $("#themeToggle i").removeClass("fas fa-moon").addClass("fas fa-sun");
+        } else {
+            $("#themeToggle i").removeClass("fas fa-sun").addClass("fas fa-moon");
+        }
+    }
+
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
         if (savedTheme === "dark") {
@@ -33,5 +40,7 @@ $(document).ready(function() {
         } else {
             $("body").removeClass("dark-theme");
         }
+        updateThemeIcon();
     }
 });
+

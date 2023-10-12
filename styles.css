@@ -12,11 +12,51 @@ header {
     padding: 1rem 0;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    position: relative;
     animation: slideDown 1s forwards;
 }
 
 header p {
     margin-top: 5px;
+}
+
+#themeToggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#themeToggle:hover {
+    color: #ddd;
+}
+
+body.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-theme header,
+body.dark-theme section,
+body.dark-theme footer {
+    background-color: #444;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p {
+    color: #fff;
+}
+
+body.dark-theme #themeToggle i {
+    transform: rotate(180deg);
+    content: "\f185";
 }
 
 section {
@@ -70,35 +110,6 @@ footer {
     animation: slideUp 1s forwards;
 }
 
-#themeToggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-body.dark-theme {
-    background-color: #333;
-    color: #fff;
-}
-
-body.dark-theme header,
-body.dark-theme section,
-body.dark-theme footer {
-    background-color: #444;
-}
-
-body.dark-theme h1,
-body.dark-theme h2,
-body.dark-theme h3,
-body.dark-theme p {
-    color: #fff;
-}
-
 @keyframes slideDown {
     0% {
         transform: translateY(-100%);
@@ -125,3 +136,4 @@ body.dark-theme p {
         transform: translateY(0);
     }
 }
+

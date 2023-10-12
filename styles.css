@@ -1,22 +1,24 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
+    height: 100%;
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
 
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
 
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    border-bottom-left-radius: 0;   /* Cette ligne */
-    border-bottom-right-radius: 0; /* Et cette ligne */
     position: relative;
     animation: slideDown 1s forwards;
 }
-
 
 header p {
     margin-top: 5px;
@@ -56,7 +58,6 @@ body.dark-theme p {
     color: #fff;
 }
 
-
 section {
     padding: 20px;
     max-width: 800px;
@@ -66,7 +67,6 @@ section {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.5s, transform 0.5s;
-    overflow: hidden;
 }
 
 section.in-view {
@@ -96,13 +96,12 @@ section.in-view .job, section.in-view .school {
 }
 
 footer {
+    margin-top: auto;
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
     width: 100%;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     animation: slideUp 1s forwards;
 }
 
@@ -133,8 +132,6 @@ footer {
     }
 }
 
-/* ... (styles existants) ... */
-
 /* Styles pour les écrans de taille moyenne et les tablettes */
 @media (max-width: 768px) {
     header {
@@ -149,21 +146,17 @@ footer {
 
     section {
         padding: 15px;
-        margin: 15px 10px; /* Réduire la marge et augmenter le padding pour un meilleur affichage sur mobile */
+        margin: 15px 10px;
     }
 
     h1, h2, h3 {
-        font-size: 1.5rem; /* Réduire la taille de la police pour les titres */
-    }
-
-    footer {
-        padding: 0.5rem 0;
+        font-size: 1.5rem;
     }
 }
 
 /* Styles pour les écrans de petite taille (téléphones mobiles) */
 @media (max-width: 480px) {
     h1, h2, h3 {
-        font-size: 1.2rem; /* Réduire encore plus la taille de la police pour les titres */
+        font-size: 1.2rem;
     }
 }

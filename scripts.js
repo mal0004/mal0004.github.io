@@ -17,4 +17,21 @@ $(document).ready(function() {
 
     $(window).on('scroll', checkIfInView);
     checkIfInView();
+
+    // Fonction pour basculer entre les thèmes clair et sombre
+    $("#themeToggle").on("click", function() {
+        $("body").toggleClass("dark-theme");
+        const currentTheme = $("body").hasClass("dark-theme") ? "dark" : "light";
+        localStorage.setItem("theme", currentTheme); // sauvegarder le thème choisi dans le stockage local
+    });
+
+    // Vérifier le stockage local pour voir si un thème a été préalablement choisi
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        if (savedTheme === "dark") {
+            $("body").addClass("dark-theme");
+        } else {
+            $("body").removeClass("dark-theme");
+        }
+    }
 });

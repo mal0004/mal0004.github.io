@@ -191,4 +191,16 @@ header h1 {
     }
 }
 
+@media (min-width: 1025px) {
+    section {
+        padding: 60px 80px; /* Augmenter la marge intérieure */
+    }
 
+    header h1 {
+        font-size: 2.5rem; /* Agrandir le titre principal */
+    }
+
+    header p {
+        font-size: 1.5rem; /* Agrandir le sous-titre */
+    }
+}

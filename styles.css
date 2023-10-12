@@ -54,10 +54,6 @@ body.dark-theme p {
     color: #fff;
 }
 
-body.dark-theme #themeToggle i {
-    transform: rotate(180deg);
-    content: "\f185";
-}
 
 section {
     padding: 20px;

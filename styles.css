@@ -101,6 +101,8 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     animation: slideUp 1s forwards;
 }
 
@@ -131,3 +133,37 @@ footer {
     }
 }
 
+/* ... (styles existants) ... */
+
+/* Styles pour les écrans de taille moyenne et les tablettes */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0;
+    }
+
+    #themeToggle {
+        top: 5px;
+        right: 5px;
+        font-size: 20px;
+    }
+
+    section {
+        padding: 15px;
+        margin: 15px 10px; /* Réduire la marge et augmenter le padding pour un meilleur affichage sur mobile */
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5rem; /* Réduire la taille de la police pour les titres */
+    }
+
+    footer {
+        padding: 0.5rem 0;
+    }
+}
+
+/* Styles pour les écrans de petite taille (téléphones mobiles) */
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.2rem; /* Réduire encore plus la taille de la police pour les titres */
+    }
+}
